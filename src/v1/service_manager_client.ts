@@ -42,7 +42,7 @@ import {operationsProtos} from 'google-gax';
 const version = require('../../../package.json').version;
 
 /**
- *  [Google Service Management API](/service-management/overview)
+ *  [Google Service Management API](https://cloud.google.com/service-management/overview)
  * @class
  * @memberof v1
  */
