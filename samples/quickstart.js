@@ -26,8 +26,10 @@ async function main(projectId) {
   const client = new ServiceManagerClient();
 
   async function listServices() {
-    const [thing] = await client.listServices({producerProjectId: projectId});
-    console.info(thing);
+    const [services] = await client.listServices({
+      producerProjectId: projectId,
+    });
+    console.info(services);
   }
   listServices();
   // [END nodejs_service_management_quickstart]
