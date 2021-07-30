@@ -1841,6 +1841,11 @@ export class ServiceManagerClient {
       protos.google.api.servicemanagement.v1.OperationMetadata
     >
   > {
+    this.warn(
+      'DEP$ServiceManager-$checkEnableServiceProgress',
+      'checkEnableServiceProgress is deprecated and may be removed in a future version.',
+      'DeprecationWarning'
+    );
     const request = new operationsProtos.google.longrunning.GetOperationRequest(
       {name}
     );
@@ -2004,6 +2009,11 @@ export class ServiceManagerClient {
       protos.google.api.servicemanagement.v1.OperationMetadata
     >
   > {
+    this.warn(
+      'DEP$ServiceManager-$checkDisableServiceProgress',
+      'checkDisableServiceProgress is deprecated and may be removed in a future version.',
+      'DeprecationWarning'
+    );
     const request = new operationsProtos.google.longrunning.GetOperationRequest(
       {name}
     );
