@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.3.0](https://www.github.com/googleapis/nodejs-service-management/compare/v0.2.6...v0.3.0) (2021-08-23)
+
+
+### Features
+
+* turns on self-signed JWT feature flag ([#81](https://www.github.com/googleapis/nodejs-service-management/issues/81)) ([237698f](https://www.github.com/googleapis/nodejs-service-management/commit/237698f72dfdd14e95d956a2e45f6db423e45e23))
+
+### [0.2.6](https://www.github.com/googleapis/nodejs-service-management/compare/v0.2.5...v0.2.6) (2021-08-17)
+
+
+### Bug Fixes
+
+* **deps:** google-gax v2.24.1 ([#79](https://www.github.com/googleapis/nodejs-service-management/issues/79)) ([b679b6c](https://www.github.com/googleapis/nodejs-service-management/commit/b679b6c3dff457764698044b8b325a52922fbb46))
+
+### [0.2.5](https://www.github.com/googleapis/nodejs-service-management/compare/v0.2.4...v0.2.5) (2021-07-12)
+
+
+### Bug Fixes
+
+* **deps:** google-gax v2.17.1 ([#70](https://www.github.com/googleapis/nodejs-service-management/issues/70)) ([fc4f996](https://www.github.com/googleapis/nodejs-service-management/commit/fc4f99666252f8f06f399438aedebb6e5502f2e9))
+
 ### [0.2.4](https://www.github.com/googleapis/nodejs-service-management/compare/v0.2.3...v0.2.4) (2021-06-30)
 
 

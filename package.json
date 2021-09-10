@@ -1,6 +1,6 @@
 {
   "name": "@google-cloud/service-management",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Service management client for Node.js",
   "repository": "googleapis/nodejs-service-management",
   "license": "Apache-2.0",
@@ -39,7 +39,7 @@
     "prelint": "cd samples; npm link ../; npm i"
   },
   "dependencies": {
-    "google-gax": "^2.17.1"
+    "google-gax": "^2.24.1"
   },
   "devDependencies": {
     "@types/mocha": "^8.2.1",
