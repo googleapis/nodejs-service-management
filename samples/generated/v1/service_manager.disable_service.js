@@ -12,21 +12,20 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
 function main(serviceName, consumerId) {
-  // [START servicemanagement_enable_service_sample]
+  // [START servicemanagement_disable_service_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. Name of the service to enable. Specifying an unknown service name will
-   *  cause the request to fail.
+   *  Required. Name of the service to disable. Specifying an unknown service name
+   *  will cause the request to fail.
    */
   // const serviceName = 'abc123'
   /**
-   *  Required. The identity of consumer resource which service enablement will be
+   *  Required. The identity of consumer resource which service disablement will be
    *  applied to.
    *  The Google Service Management implementation accepts the following
    *  forms:
@@ -42,7 +41,7 @@ function main(serviceName, consumerId) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function enableService() {
+  async function disableService() {
     // Construct request
     const request = {
       serviceName,
@@ -50,13 +49,13 @@ function main(serviceName, consumerId) {
     };
 
     // Run request
-    const [operation] = await servicemanagementClient.enableService(request);
+    const [operation] = await servicemanagementClient.disableService(request);
     const [response] = await operation.promise();
     console.log(response);
   }
 
-  enableService();
-  // [END servicemanagement_enable_service_sample]
+  disableService();
+  // [END servicemanagement_disable_service_sample]
 }
 
 process.on('unhandledRejection', err => {

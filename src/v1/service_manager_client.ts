@@ -479,6 +479,10 @@ export class ServiceManagerClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.getService(request);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.get_service.js</caption>
+   * region_tag:servicemanagement_get_service_sample
+   *
    */
   getService(
     request?: protos.google.api.servicemanagement.v1.IGetServiceRequest,
@@ -582,6 +586,10 @@ export class ServiceManagerClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.getServiceConfig(request);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.get_service_config.js</caption>
+   * region_tag:servicemanagement_get_service_config_sample
+   *
    */
   getServiceConfig(
     request?: protos.google.api.servicemanagement.v1.IGetServiceConfigRequest,
@@ -689,6 +697,10 @@ export class ServiceManagerClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.createServiceConfig(request);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.create_service_config.js</caption>
+   * region_tag:servicemanagement_create_service_config_sample
+   *
    */
   createServiceConfig(
     request?: protos.google.api.servicemanagement.v1.ICreateServiceConfigRequest,
@@ -789,6 +801,10 @@ export class ServiceManagerClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.getServiceRollout(request);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.get_service_rollout.js</caption>
+   * region_tag:servicemanagement_get_service_rollout_sample
+   *
    */
   getServiceRollout(
     request?: protos.google.api.servicemanagement.v1.IGetServiceRolloutRequest,
@@ -906,6 +922,10 @@ export class ServiceManagerClient {
    *   for more details and examples.
    * @example
    * const [response] = await client.generateConfigReport(request);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.generate_config_report.js</caption>
+   * region_tag:servicemanagement_generate_config_report_sample
+   *
    */
   generateConfigReport(
     request?: protos.google.api.servicemanagement.v1.IGenerateConfigReportRequest,
@@ -1006,6 +1026,10 @@ export class ServiceManagerClient {
    * @example
    * const [operation] = await client.createService(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.create_service.js</caption>
+   * region_tag:servicemanagement_create_service_sample
+   *
    */
   createService(
     request?: protos.google.api.servicemanagement.v1.ICreateServiceRequest,
@@ -1063,6 +1087,10 @@ export class ServiceManagerClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.create_service.js</caption>
+   * region_tag:servicemanagement_create_service_sample
+   *
    */
   async checkCreateServiceProgress(
     name: string
@@ -1147,6 +1175,10 @@ export class ServiceManagerClient {
    * @example
    * const [operation] = await client.deleteService(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.delete_service.js</caption>
+   * region_tag:servicemanagement_delete_service_sample
+   *
    */
   deleteService(
     request?: protos.google.api.servicemanagement.v1.IDeleteServiceRequest,
@@ -1210,6 +1242,10 @@ export class ServiceManagerClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.delete_service.js</caption>
+   * region_tag:servicemanagement_delete_service_sample
+   *
    */
   async checkDeleteServiceProgress(
     name: string
@@ -1294,6 +1330,10 @@ export class ServiceManagerClient {
    * @example
    * const [operation] = await client.undeleteService(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.undelete_service.js</caption>
+   * region_tag:servicemanagement_undelete_service_sample
+   *
    */
   undeleteService(
     request?: protos.google.api.servicemanagement.v1.IUndeleteServiceRequest,
@@ -1357,6 +1397,10 @@ export class ServiceManagerClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.undelete_service.js</caption>
+   * region_tag:servicemanagement_undelete_service_sample
+   *
    */
   async checkUndeleteServiceProgress(
     name: string
@@ -1454,6 +1498,10 @@ export class ServiceManagerClient {
    * @example
    * const [operation] = await client.submitConfigSource(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.submit_config_source.js</caption>
+   * region_tag:servicemanagement_submit_config_source_sample
+   *
    */
   submitConfigSource(
     request?: protos.google.api.servicemanagement.v1.ISubmitConfigSourceRequest,
@@ -1517,6 +1565,10 @@ export class ServiceManagerClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.submit_config_source.js</caption>
+   * region_tag:servicemanagement_submit_config_source_sample
+   *
    */
   async checkSubmitConfigSourceProgress(
     name: string
@@ -1611,6 +1663,10 @@ export class ServiceManagerClient {
    * @example
    * const [operation] = await client.createServiceRollout(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.create_service_rollout.js</caption>
+   * region_tag:servicemanagement_create_service_rollout_sample
+   *
    */
   createServiceRollout(
     request?: protos.google.api.servicemanagement.v1.ICreateServiceRolloutRequest,
@@ -1674,6 +1730,10 @@ export class ServiceManagerClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.create_service_rollout.js</caption>
+   * region_tag:servicemanagement_create_service_rollout_sample
+   *
    */
   async checkCreateServiceRolloutProgress(
     name: string
@@ -1768,6 +1828,10 @@ export class ServiceManagerClient {
    * @example
    * const [operation] = await client.enableService(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.enable_service.js</caption>
+   * region_tag:servicemanagement_enable_service_sample
+   *
    * @deprecated EnableService is deprecated and may be removed in a future version.
    */
   enableService(
@@ -1837,6 +1901,10 @@ export class ServiceManagerClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.enable_service.js</caption>
+   * region_tag:servicemanagement_enable_service_sample
+   *
    * @deprecated EnableService is deprecated and may be removed in a future version.
    */
   async checkEnableServiceProgress(
@@ -1936,6 +2004,10 @@ export class ServiceManagerClient {
    * @example
    * const [operation] = await client.disableService(request);
    * const [response] = await operation.promise();
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.disable_service.js</caption>
+   * region_tag:servicemanagement_disable_service_sample
+   *
    * @deprecated DisableService is deprecated and may be removed in a future version.
    */
   disableService(
@@ -2005,6 +2077,10 @@ export class ServiceManagerClient {
    * console.log(decodedOperation.result);
    * console.log(decodedOperation.done);
    * console.log(decodedOperation.metadata);
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.disable_service.js</caption>
+   * region_tag:servicemanagement_disable_service_sample
+   *
    * @deprecated DisableService is deprecated and may be removed in a future version.
    */
   async checkDisableServiceProgress(
@@ -2104,6 +2180,10 @@ export class ServiceManagerClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.list_services.js</caption>
+   * region_tag:servicemanagement_list_services_sample
+   *
    */
   listServices(
     request?: protos.google.api.servicemanagement.v1.IListServicesRequest,
@@ -2172,6 +2252,10 @@ export class ServiceManagerClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.list_services.js</caption>
+   * region_tag:servicemanagement_list_services_sample
+   *
    */
   listServicesStream(
     request?: protos.google.api.servicemanagement.v1.IListServicesRequest,
@@ -2179,7 +2263,8 @@ export class ServiceManagerClient {
   ): Transform {
     request = request || {};
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServices'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServices.createStream(
       this.innerApiCalls.listServices as gax.GaxCall,
@@ -2223,6 +2308,10 @@ export class ServiceManagerClient {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.list_services.js</caption>
+   * region_tag:servicemanagement_list_services_sample
+   *
    */
   listServicesAsync(
     request?: protos.google.api.servicemanagement.v1.IListServicesRequest,
@@ -2231,7 +2320,8 @@ export class ServiceManagerClient {
     request = request || {};
     options = options || {};
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServices'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServices.asyncIterate(
       this.innerApiCalls['listServices'] as GaxCall,
@@ -2296,6 +2386,10 @@ export class ServiceManagerClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.list_service_configs.js</caption>
+   * region_tag:servicemanagement_list_service_configs_sample
+   *
    */
   listServiceConfigs(
     request?: protos.google.api.servicemanagement.v1.IListServiceConfigsRequest,
@@ -2364,6 +2458,10 @@ export class ServiceManagerClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.list_service_configs.js</caption>
+   * region_tag:servicemanagement_list_service_configs_sample
+   *
    */
   listServiceConfigsStream(
     request?: protos.google.api.servicemanagement.v1.IListServiceConfigsRequest,
@@ -2377,7 +2475,8 @@ export class ServiceManagerClient {
       gax.routingHeader.fromParams({
         service_name: request.serviceName || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServiceConfigs'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServiceConfigs.createStream(
       this.innerApiCalls.listServiceConfigs as gax.GaxCall,
@@ -2415,6 +2514,10 @@ export class ServiceManagerClient {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.list_service_configs.js</caption>
+   * region_tag:servicemanagement_list_service_configs_sample
+   *
    */
   listServiceConfigsAsync(
     request?: protos.google.api.servicemanagement.v1.IListServiceConfigsRequest,
@@ -2429,7 +2532,8 @@ export class ServiceManagerClient {
         service_name: request.serviceName || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServiceConfigs'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServiceConfigs.asyncIterate(
       this.innerApiCalls['listServiceConfigs'] as GaxCall,
@@ -2503,6 +2607,10 @@ export class ServiceManagerClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.list_service_rollouts.js</caption>
+   * region_tag:servicemanagement_list_service_rollouts_sample
+   *
    */
   listServiceRollouts(
     request?: protos.google.api.servicemanagement.v1.IListServiceRolloutsRequest,
@@ -2580,6 +2688,10 @@ export class ServiceManagerClient {
    *   Please see the
    *   [documentation](https://github.com/googleapis/gax-nodejs/blob/master/client-libraries.md#auto-pagination)
    *   for more details and examples.
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.list_service_rollouts.js</caption>
+   * region_tag:servicemanagement_list_service_rollouts_sample
+   *
    */
   listServiceRolloutsStream(
     request?: protos.google.api.servicemanagement.v1.IListServiceRolloutsRequest,
@@ -2593,7 +2705,8 @@ export class ServiceManagerClient {
       gax.routingHeader.fromParams({
         service_name: request.serviceName || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServiceRollouts'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServiceRollouts.createStream(
       this.innerApiCalls.listServiceRollouts as gax.GaxCall,
@@ -2640,6 +2753,10 @@ export class ServiceManagerClient {
    * for await (const response of iterable) {
    *   // process response
    * }
+   *
+   * @example <caption>include:samples/generated/v1/service_manager.list_service_rollouts.js</caption>
+   * region_tag:servicemanagement_list_service_rollouts_sample
+   *
    */
   listServiceRolloutsAsync(
     request?: protos.google.api.servicemanagement.v1.IListServiceRolloutsRequest,
@@ -2654,7 +2771,8 @@ export class ServiceManagerClient {
         service_name: request.serviceName || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServiceRollouts'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServiceRollouts.asyncIterate(
       this.innerApiCalls['listServiceRollouts'] as GaxCall,

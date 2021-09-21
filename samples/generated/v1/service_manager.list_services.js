@@ -12,39 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, filter) {
-  // [START servicemanagement_list_service_rollouts_sample]
+function main() {
+  // [START servicemanagement_list_services_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the service.  See the [overview](https://cloud.google.com/service-management/overview)
-   *  for naming requirements.  For example: `example.googleapis.com`.
+   *  Include services produced by the specified project.
    */
-  // const serviceName = 'abc123'
-  /**
-   *  The token of the page to retrieve.
-   */
-  // const pageToken = 'abc123'
+  // const producerProjectId = 'abc123'
   /**
    *  The max number of items to include in the response list. Page size is 50
    *  if not specified. Maximum value is 100.
    */
   // const pageSize = 1234
   /**
-   *  Required. Use `filter` to return subset of rollouts.
-   *  The following filters are supported:
-   *    -- To limit the results to only those in
-   *       status (google.api.servicemanagement.v1.RolloutStatus) 'SUCCESS',
-   *       use filter='status=SUCCESS'
-   *    -- To limit the results to those in
-   *       status (google.api.servicemanagement.v1.RolloutStatus) 'CANCELLED'
-   *       or 'FAILED', use filter='status=CANCELLED OR status=FAILED'
+   *  Token identifying which result to start with; returned by a previous list
+   *  call.
    */
-  // const filter = 'abc123'
+  // const pageToken = 'abc123'
+  /**
+   *  Include services consumed by the specified consumer.
+   *  The Google Service Management implementation accepts the following
+   *  forms:
+   *  - project:<project_id>
+   */
+  // const consumerId = 'abc123'
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -52,22 +47,19 @@ function main(serviceName, filter) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function listServiceRollouts() {
+  async function listServices() {
     // Construct request
-    const request = {
-      serviceName,
-      filter,
-    };
+    const request = {};
 
     // Run request
-    const iterable = await servicemanagementClient.listServiceRolloutsAsync(request);
+    const iterable = await servicemanagementClient.listServicesAsync(request);
     for await (const response of iterable) {
-        console.log(response);
+      console.log(response);
     }
   }
 
-  listServiceRollouts();
-  // [END servicemanagement_list_service_rollouts_sample]
+  listServices();
+  // [END servicemanagement_list_services_sample]
 }
 
 process.on('unhandledRejection', err => {

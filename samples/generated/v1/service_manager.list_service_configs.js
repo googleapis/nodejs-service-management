@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, rollout) {
-  // [START servicemanagement_create_service_rollout_sample]
+function main(serviceName) {
+  // [START servicemanagement_list_service_configs_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
@@ -26,9 +25,14 @@ function main(serviceName, rollout) {
    */
   // const serviceName = 'abc123'
   /**
-   *  Required. The rollout resource. The `service_name` field is output only.
+   *  The token of the page to retrieve.
    */
-  // const rollout = ''
+  // const pageToken = 'abc123'
+  /**
+   *  The max number of items to include in the response list. Page size is 50
+   *  if not specified. Maximum value is 100.
+   */
+  // const pageSize = 1234
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -36,21 +40,23 @@ function main(serviceName, rollout) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function createServiceRollout() {
+  async function listServiceConfigs() {
     // Construct request
     const request = {
       serviceName,
-      rollout,
     };
 
     // Run request
-    const [operation] = await servicemanagementClient.createServiceRollout(request);
-    const [response] = await operation.promise();
-    console.log(response);
+    const iterable = await servicemanagementClient.listServiceConfigsAsync(
+      request
+    );
+    for await (const response of iterable) {
+      console.log(response);
+    }
   }
 
-  createServiceRollout();
-  // [END servicemanagement_create_service_rollout_sample]
+  listServiceConfigs();
+  // [END servicemanagement_list_service_configs_sample]
 }
 
 process.on('unhandledRejection', err => {

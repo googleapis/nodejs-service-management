@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, configSource) {
-  // [START servicemanagement_submit_config_source_sample]
+function main(serviceName, rollout) {
+  // [START servicemanagement_create_service_rollout_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
@@ -26,15 +25,9 @@ function main(serviceName, configSource) {
    */
   // const serviceName = 'abc123'
   /**
-   *  Required. The source configuration for the service.
+   *  Required. The rollout resource. The `service_name` field is output only.
    */
-  // const configSource = ''
-  /**
-   *  Optional. If set, this will result in the generation of a
-   *  `google.api.Service` configuration based on the `ConfigSource` provided,
-   *  but the generated config and the sources will NOT be persisted.
-   */
-  // const validateOnly = true
+  // const rollout = ''
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -42,21 +35,23 @@ function main(serviceName, configSource) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function submitConfigSource() {
+  async function createServiceRollout() {
     // Construct request
     const request = {
       serviceName,
-      configSource,
+      rollout,
     };
 
     // Run request
-    const [operation] = await servicemanagementClient.submitConfigSource(request);
+    const [operation] = await servicemanagementClient.createServiceRollout(
+      request
+    );
     const [response] = await operation.promise();
     console.log(response);
   }
 
-  submitConfigSource();
-  // [END servicemanagement_submit_config_source_sample]
+  createServiceRollout();
+  // [END servicemanagement_create_service_rollout_sample]
 }
 
 process.on('unhandledRejection', err => {

@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, configId) {
-  // [START servicemanagement_get_service_config_sample]
+function main(serviceName, rolloutId) {
+  // [START servicemanagement_get_service_rollout_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
@@ -26,16 +25,9 @@ function main(serviceName, configId) {
    */
   // const serviceName = 'abc123'
   /**
-   *  Required. The id of the service configuration resource.
-   *  This field must be specified for the server to return all fields, including
-   *  `SourceInfo`.
+   *  Required. The id of the rollout resource.
    */
-  // const configId = 'abc123'
-  /**
-   *  Specifies which parts of the Service Config should be returned in the
-   *  response.
-   */
-  // const view = ''
+  // const rolloutId = 'abc123'
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -43,20 +35,20 @@ function main(serviceName, configId) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function getServiceConfig() {
+  async function getServiceRollout() {
     // Construct request
     const request = {
       serviceName,
-      configId,
+      rolloutId,
     };
 
     // Run request
-    const response = await servicemanagementClient.getServiceConfig(request);
+    const response = await servicemanagementClient.getServiceRollout(request);
     console.log(response);
   }
 
-  getServiceConfig();
-  // [END servicemanagement_get_service_config_sample]
+  getServiceRollout();
+  // [END servicemanagement_get_service_rollout_sample]
 }
 
 process.on('unhandledRejection', err => {

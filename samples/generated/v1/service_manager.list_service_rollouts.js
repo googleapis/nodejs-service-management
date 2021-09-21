@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, serviceConfig) {
-  // [START servicemanagement_create_service_config_sample]
+function main(serviceName, filter) {
+  // [START servicemanagement_list_service_rollouts_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
@@ -26,9 +25,25 @@ function main(serviceName, serviceConfig) {
    */
   // const serviceName = 'abc123'
   /**
-   *  Required. The service configuration resource.
+   *  The token of the page to retrieve.
    */
-  // const serviceConfig = ''
+  // const pageToken = 'abc123'
+  /**
+   *  The max number of items to include in the response list. Page size is 50
+   *  if not specified. Maximum value is 100.
+   */
+  // const pageSize = 1234
+  /**
+   *  Required. Use `filter` to return subset of rollouts.
+   *  The following filters are supported:
+   *    -- To limit the results to only those in
+   *       status (google.api.servicemanagement.v1.RolloutStatus) 'SUCCESS',
+   *       use filter='status=SUCCESS'
+   *    -- To limit the results to those in
+   *       status (google.api.servicemanagement.v1.RolloutStatus) 'CANCELLED'
+   *       or 'FAILED', use filter='status=CANCELLED OR status=FAILED'
+   */
+  // const filter = 'abc123'
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -36,20 +51,24 @@ function main(serviceName, serviceConfig) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function createServiceConfig() {
+  async function listServiceRollouts() {
     // Construct request
     const request = {
       serviceName,
-      serviceConfig,
+      filter,
     };
 
     // Run request
-    const response = await servicemanagementClient.createServiceConfig(request);
-    console.log(response);
+    const iterable = await servicemanagementClient.listServiceRolloutsAsync(
+      request
+    );
+    for await (const response of iterable) {
+      console.log(response);
+    }
   }
 
-  createServiceConfig();
-  // [END servicemanagement_create_service_config_sample]
+  listServiceRollouts();
+  // [END servicemanagement_list_service_rollouts_sample]
 }
 
 process.on('unhandledRejection', err => {

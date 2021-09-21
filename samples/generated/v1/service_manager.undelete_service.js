@@ -12,17 +12,16 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
 function main(serviceName) {
-  // [START servicemanagement_delete_service_sample]
+  // [START servicemanagement_undelete_service_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the service.  See the [overview](https://cloud.google.com/service-management/overview)
-   *  for naming requirements.  For example: `example.googleapis.com`.
+   *  Required. The name of the service. See the [overview](https://cloud.google.com/service-management/overview)
+   *  for naming requirements. For example: `example.googleapis.com`.
    */
   // const serviceName = 'abc123'
 
@@ -32,20 +31,20 @@ function main(serviceName) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function deleteService() {
+  async function undeleteService() {
     // Construct request
     const request = {
       serviceName,
     };
 
     // Run request
-    const [operation] = await servicemanagementClient.deleteService(request);
+    const [operation] = await servicemanagementClient.undeleteService(request);
     const [response] = await operation.promise();
     console.log(response);
   }
 
-  deleteService();
-  // [END servicemanagement_delete_service_sample]
+  undeleteService();
+  // [END servicemanagement_undelete_service_sample]
 }
 
 process.on('unhandledRejection', err => {

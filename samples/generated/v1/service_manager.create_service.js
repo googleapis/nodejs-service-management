@@ -12,35 +12,17 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main() {
-  // [START servicemanagement_list_services_sample]
+function main(service) {
+  // [START servicemanagement_create_service_sample]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Include services produced by the specified project.
+   *  Required. Initial values for the service resource.
    */
-  // const producerProjectId = 'abc123'
-  /**
-   *  The max number of items to include in the response list. Page size is 50
-   *  if not specified. Maximum value is 100.
-   */
-  // const pageSize = 1234
-  /**
-   *  Token identifying which result to start with; returned by a previous list
-   *  call.
-   */
-  // const pageToken = 'abc123'
-  /**
-   *  Include services consumed by the specified consumer.
-   *  The Google Service Management implementation accepts the following
-   *  forms:
-   *  - project:<project_id>
-   */
-  // const consumerId = 'abc123'
+  // const service = ''
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -48,20 +30,20 @@ function main() {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function listServices() {
+  async function createService() {
     // Construct request
     const request = {
+      service,
     };
 
     // Run request
-    const iterable = await servicemanagementClient.listServicesAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const [operation] = await servicemanagementClient.createService(request);
+    const [response] = await operation.promise();
+    console.log(response);
   }
 
-  listServices();
-  // [END servicemanagement_list_services_sample]
+  createService();
+  // [END servicemanagement_create_service_sample]
 }
 
 process.on('unhandledRejection', err => {
