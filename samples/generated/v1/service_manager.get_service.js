@@ -12,28 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
 function main(serviceName) {
-  // [START servicemanagement_v1_generated_ServiceManager_ListServiceConfigs_async]
+  // [START servicemanagement_v1_generated_ServiceManager_GetService_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the service.  See the [overview](https://cloud.google.com/service-management/overview)
-   *  for naming requirements.  For example: `example.googleapis.com`.
+   *  Required. The name of the service.  See the `ServiceManager` overview for naming
+   *  requirements.  For example: `example.googleapis.com`.
    */
   // const serviceName = 'abc123'
-  /**
-   *  The token of the page to retrieve.
-   */
-  // const pageToken = 'abc123'
-  /**
-   *  The max number of items to include in the response list. Page size is 50
-   *  if not specified. Maximum value is 100.
-   */
-  // const pageSize = 1234
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -41,21 +31,19 @@ function main(serviceName) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function listServiceConfigs() {
+  async function getService() {
     // Construct request
     const request = {
       serviceName,
     };
 
     // Run request
-    const iterable = await servicemanagementClient.listServiceConfigsAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const response = await servicemanagementClient.getService(request);
+    console.log(response);
   }
 
-  listServiceConfigs();
-  // [END servicemanagement_v1_generated_ServiceManager_ListServiceConfigs_async]
+  getService();
+  // [END servicemanagement_v1_generated_ServiceManager_GetService_async]
 }
 
 process.on('unhandledRejection', err => {

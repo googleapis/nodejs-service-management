@@ -12,29 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, consumerId) {
-  // [START servicemanagement_v1_generated_ServiceManager_DisableService_async]
+function main(serviceName) {
+  // [START servicemanagement_v1_generated_ServiceManager_UndeleteService_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. Name of the service to disable. Specifying an unknown service name
-   *  will cause the request to fail.
+   *  Required. The name of the service. See the [overview](https://cloud.google.com/service-management/overview)
+   *  for naming requirements. For example: `example.googleapis.com`.
    */
   // const serviceName = 'abc123'
-  /**
-   *  Required. The identity of consumer resource which service disablement will be
-   *  applied to.
-   *  The Google Service Management implementation accepts the following
-   *  forms:
-   *  - "project:<project_id>"
-   *  Note: this is made compatible with
-   *  google.api.servicecontrol.v1.Operation.consumer_id.
-   */
-  // const consumerId = 'abc123'
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -42,21 +31,20 @@ function main(serviceName, consumerId) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function disableService() {
+  async function undeleteService() {
     // Construct request
     const request = {
       serviceName,
-      consumerId,
     };
 
     // Run request
-    const [operation] = await servicemanagementClient.disableService(request);
+    const [operation] = await servicemanagementClient.undeleteService(request);
     const [response] = await operation.promise();
     console.log(response);
   }
 
-  disableService();
-  // [END servicemanagement_v1_generated_ServiceManager_DisableService_async]
+  undeleteService();
+  // [END servicemanagement_v1_generated_ServiceManager_UndeleteService_async]
 }
 
 process.on('unhandledRejection', err => {

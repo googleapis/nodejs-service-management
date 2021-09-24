@@ -12,19 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName) {
-  // [START servicemanagement_v1_generated_ServiceManager_GetService_async]
+function main(serviceName, rollout) {
+  // [START servicemanagement_v1_generated_ServiceManager_CreateServiceRollout_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the service.  See the `ServiceManager` overview for naming
-   *  requirements.  For example: `example.googleapis.com`.
+   *  Required. The name of the service.  See the [overview](https://cloud.google.com/service-management/overview)
+   *  for naming requirements.  For example: `example.googleapis.com`.
    */
   // const serviceName = 'abc123'
+  /**
+   *  Required. The rollout resource. The `service_name` field is output only.
+   */
+  // const rollout = ''
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -32,19 +35,23 @@ function main(serviceName) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function getService() {
+  async function createServiceRollout() {
     // Construct request
     const request = {
       serviceName,
+      rollout,
     };
 
     // Run request
-    const response = await servicemanagementClient.getService(request);
+    const [operation] = await servicemanagementClient.createServiceRollout(
+      request
+    );
+    const [response] = await operation.promise();
     console.log(response);
   }
 
-  getService();
-  // [END servicemanagement_v1_generated_ServiceManager_GetService_async]
+  createServiceRollout();
+  // [END servicemanagement_v1_generated_ServiceManager_CreateServiceRollout_async]
 }
 
 process.on('unhandledRejection', err => {

@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, filter) {
-  // [START servicemanagement_v1_generated_ServiceManager_ListServiceRollouts_async]
+function main(serviceName, configId) {
+  // [START servicemanagement_v1_generated_ServiceManager_GetServiceConfig_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
@@ -26,25 +25,16 @@ function main(serviceName, filter) {
    */
   // const serviceName = 'abc123'
   /**
-   *  The token of the page to retrieve.
+   *  Required. The id of the service configuration resource.
+   *  This field must be specified for the server to return all fields, including
+   *  `SourceInfo`.
    */
-  // const pageToken = 'abc123'
+  // const configId = 'abc123'
   /**
-   *  The max number of items to include in the response list. Page size is 50
-   *  if not specified. Maximum value is 100.
+   *  Specifies which parts of the Service Config should be returned in the
+   *  response.
    */
-  // const pageSize = 1234
-  /**
-   *  Required. Use `filter` to return subset of rollouts.
-   *  The following filters are supported:
-   *    -- To limit the results to only those in
-   *       status (google.api.servicemanagement.v1.RolloutStatus) 'SUCCESS',
-   *       use filter='status=SUCCESS'
-   *    -- To limit the results to those in
-   *       status (google.api.servicemanagement.v1.RolloutStatus) 'CANCELLED'
-   *       or 'FAILED', use filter='status=CANCELLED OR status=FAILED'
-   */
-  // const filter = 'abc123'
+  // const view = ''
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -52,22 +42,20 @@ function main(serviceName, filter) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function listServiceRollouts() {
+  async function getServiceConfig() {
     // Construct request
     const request = {
       serviceName,
-      filter,
+      configId,
     };
 
     // Run request
-    const iterable = await servicemanagementClient.listServiceRolloutsAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const response = await servicemanagementClient.getServiceConfig(request);
+    console.log(response);
   }
 
-  listServiceRollouts();
-  // [END servicemanagement_v1_generated_ServiceManager_ListServiceRollouts_async]
+  getServiceConfig();
+  // [END servicemanagement_v1_generated_ServiceManager_GetServiceConfig_async]
 }
 
 process.on('unhandledRejection', err => {

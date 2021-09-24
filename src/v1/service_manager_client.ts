@@ -2179,7 +2179,8 @@ export class ServiceManagerClient {
   ): Transform {
     request = request || {};
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServices'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServices.createStream(
       this.innerApiCalls.listServices as gax.GaxCall,
@@ -2231,7 +2232,8 @@ export class ServiceManagerClient {
     request = request || {};
     options = options || {};
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServices'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServices.asyncIterate(
       this.innerApiCalls['listServices'] as GaxCall,
@@ -2377,7 +2379,8 @@ export class ServiceManagerClient {
       gax.routingHeader.fromParams({
         service_name: request.serviceName || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServiceConfigs'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServiceConfigs.createStream(
       this.innerApiCalls.listServiceConfigs as gax.GaxCall,
@@ -2429,7 +2432,8 @@ export class ServiceManagerClient {
         service_name: request.serviceName || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServiceConfigs'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServiceConfigs.asyncIterate(
       this.innerApiCalls['listServiceConfigs'] as GaxCall,
@@ -2593,7 +2597,8 @@ export class ServiceManagerClient {
       gax.routingHeader.fromParams({
         service_name: request.serviceName || '',
       });
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServiceRollouts'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServiceRollouts.createStream(
       this.innerApiCalls.listServiceRollouts as gax.GaxCall,
@@ -2654,7 +2659,8 @@ export class ServiceManagerClient {
         service_name: request.serviceName || '',
       });
     options = options || {};
-    const callSettings = new gax.CallSettings(options);
+    const defaultCallSettings = this._defaults['listServiceRollouts'];
+    const callSettings = defaultCallSettings.merge(options);
     this.initialize();
     return this.descriptors.page.listServiceRollouts.asyncIterate(
       this.innerApiCalls['listServiceRollouts'] as GaxCall,

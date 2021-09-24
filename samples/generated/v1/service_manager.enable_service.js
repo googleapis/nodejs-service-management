@@ -12,33 +12,26 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main() {
-  // [START servicemanagement_v1_generated_ServiceManager_ListServices_async]
+function main(serviceName, consumerId) {
+  // [START servicemanagement_v1_generated_ServiceManager_EnableService_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Include services produced by the specified project.
+   *  Required. Name of the service to enable. Specifying an unknown service name will
+   *  cause the request to fail.
    */
-  // const producerProjectId = 'abc123'
+  // const serviceName = 'abc123'
   /**
-   *  The max number of items to include in the response list. Page size is 50
-   *  if not specified. Maximum value is 100.
-   */
-  // const pageSize = 1234
-  /**
-   *  Token identifying which result to start with; returned by a previous list
-   *  call.
-   */
-  // const pageToken = 'abc123'
-  /**
-   *  Include services consumed by the specified consumer.
+   *  Required. The identity of consumer resource which service enablement will be
+   *  applied to.
    *  The Google Service Management implementation accepts the following
    *  forms:
-   *  - project:<project_id>
+   *  - "project:<project_id>"
+   *  Note: this is made compatible with
+   *  google.api.servicecontrol.v1.Operation.consumer_id.
    */
   // const consumerId = 'abc123'
 
@@ -48,20 +41,21 @@ function main() {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function listServices() {
+  async function enableService() {
     // Construct request
     const request = {
+      serviceName,
+      consumerId,
     };
 
     // Run request
-    const iterable = await servicemanagementClient.listServicesAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const [operation] = await servicemanagementClient.enableService(request);
+    const [response] = await operation.promise();
+    console.log(response);
   }
 
-  listServices();
-  // [END servicemanagement_v1_generated_ServiceManager_ListServices_async]
+  enableService();
+  // [END servicemanagement_v1_generated_ServiceManager_EnableService_async]
 }
 
 process.on('unhandledRejection', err => {

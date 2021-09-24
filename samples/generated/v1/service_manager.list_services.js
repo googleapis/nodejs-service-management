@@ -12,19 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName) {
-  // [START servicemanagement_v1_generated_ServiceManager_UndeleteService_async]
+function main() {
+  // [START servicemanagement_v1_generated_ServiceManager_ListServices_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the service. See the [overview](https://cloud.google.com/service-management/overview)
-   *  for naming requirements. For example: `example.googleapis.com`.
+   *  Include services produced by the specified project.
    */
-  // const serviceName = 'abc123'
+  // const producerProjectId = 'abc123'
+  /**
+   *  The max number of items to include in the response list. Page size is 50
+   *  if not specified. Maximum value is 100.
+   */
+  // const pageSize = 1234
+  /**
+   *  Token identifying which result to start with; returned by a previous list
+   *  call.
+   */
+  // const pageToken = 'abc123'
+  /**
+   *  Include services consumed by the specified consumer.
+   *  The Google Service Management implementation accepts the following
+   *  forms:
+   *  - project:<project_id>
+   */
+  // const consumerId = 'abc123'
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -32,20 +47,19 @@ function main(serviceName) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function undeleteService() {
+  async function listServices() {
     // Construct request
-    const request = {
-      serviceName,
-    };
+    const request = {};
 
     // Run request
-    const [operation] = await servicemanagementClient.undeleteService(request);
-    const [response] = await operation.promise();
-    console.log(response);
+    const iterable = await servicemanagementClient.listServicesAsync(request);
+    for await (const response of iterable) {
+      console.log(response);
+    }
   }
 
-  undeleteService();
-  // [END servicemanagement_v1_generated_ServiceManager_UndeleteService_async]
+  listServices();
+  // [END servicemanagement_v1_generated_ServiceManager_ListServices_async]
 }
 
 process.on('unhandledRejection', err => {

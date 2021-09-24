@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, rollout) {
-  // [START servicemanagement_v1_generated_ServiceManager_CreateServiceRollout_async]
+function main(serviceName) {
+  // [START servicemanagement_v1_generated_ServiceManager_DeleteService_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
@@ -25,10 +24,6 @@ function main(serviceName, rollout) {
    *  for naming requirements.  For example: `example.googleapis.com`.
    */
   // const serviceName = 'abc123'
-  /**
-   *  Required. The rollout resource. The `service_name` field is output only.
-   */
-  // const rollout = ''
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -36,21 +31,20 @@ function main(serviceName, rollout) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function createServiceRollout() {
+  async function deleteService() {
     // Construct request
     const request = {
       serviceName,
-      rollout,
     };
 
     // Run request
-    const [operation] = await servicemanagementClient.createServiceRollout(request);
+    const [operation] = await servicemanagementClient.deleteService(request);
     const [response] = await operation.promise();
     console.log(response);
   }
 
-  createServiceRollout();
-  // [END servicemanagement_v1_generated_ServiceManager_CreateServiceRollout_async]
+  deleteService();
+  // [END servicemanagement_v1_generated_ServiceManager_DeleteService_async]
 }
 
 process.on('unhandledRejection', err => {

@@ -12,18 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(service) {
-  // [START servicemanagement_v1_generated_ServiceManager_CreateService_async]
+function main(serviceName, consumerId) {
+  // [START servicemanagement_v1_generated_ServiceManager_DisableService_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. Initial values for the service resource.
+   *  Required. Name of the service to disable. Specifying an unknown service name
+   *  will cause the request to fail.
    */
-  // const service = ''
+  // const serviceName = 'abc123'
+  /**
+   *  Required. The identity of consumer resource which service disablement will be
+   *  applied to.
+   *  The Google Service Management implementation accepts the following
+   *  forms:
+   *  - "project:<project_id>"
+   *  Note: this is made compatible with
+   *  google.api.servicecontrol.v1.Operation.consumer_id.
+   */
+  // const consumerId = 'abc123'
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -31,20 +41,21 @@ function main(service) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function createService() {
+  async function disableService() {
     // Construct request
     const request = {
-      service,
+      serviceName,
+      consumerId,
     };
 
     // Run request
-    const [operation] = await servicemanagementClient.createService(request);
+    const [operation] = await servicemanagementClient.disableService(request);
     const [response] = await operation.promise();
     console.log(response);
   }
 
-  createService();
-  // [END servicemanagement_v1_generated_ServiceManager_CreateService_async]
+  disableService();
+  // [END servicemanagement_v1_generated_ServiceManager_DisableService_async]
 }
 
 process.on('unhandledRejection', err => {

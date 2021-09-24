@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
 function main(newConfig) {
@@ -50,7 +49,9 @@ function main(newConfig) {
     };
 
     // Run request
-    const response = await servicemanagementClient.generateConfigReport(request);
+    const response = await servicemanagementClient.generateConfigReport(
+      request
+    );
     console.log(response);
   }
 

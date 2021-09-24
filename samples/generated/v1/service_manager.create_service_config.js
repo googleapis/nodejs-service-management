@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, configId) {
-  // [START servicemanagement_v1_generated_ServiceManager_GetServiceConfig_async]
+function main(serviceName, serviceConfig) {
+  // [START servicemanagement_v1_generated_ServiceManager_CreateServiceConfig_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
@@ -26,16 +25,9 @@ function main(serviceName, configId) {
    */
   // const serviceName = 'abc123'
   /**
-   *  Required. The id of the service configuration resource.
-   *  This field must be specified for the server to return all fields, including
-   *  `SourceInfo`.
+   *  Required. The service configuration resource.
    */
-  // const configId = 'abc123'
-  /**
-   *  Specifies which parts of the Service Config should be returned in the
-   *  response.
-   */
-  // const view = ''
+  // const serviceConfig = ''
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -43,20 +35,20 @@ function main(serviceName, configId) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function getServiceConfig() {
+  async function createServiceConfig() {
     // Construct request
     const request = {
       serviceName,
-      configId,
+      serviceConfig,
     };
 
     // Run request
-    const response = await servicemanagementClient.getServiceConfig(request);
+    const response = await servicemanagementClient.createServiceConfig(request);
     console.log(response);
   }
 
-  getServiceConfig();
-  // [END servicemanagement_v1_generated_ServiceManager_GetServiceConfig_async]
+  createServiceConfig();
+  // [END servicemanagement_v1_generated_ServiceManager_CreateServiceConfig_async]
 }
 
 process.on('unhandledRejection', err => {

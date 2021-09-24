@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName) {
-  // [START servicemanagement_v1_generated_ServiceManager_DeleteService_async]
+function main(serviceName, configSource) {
+  // [START servicemanagement_v1_generated_ServiceManager_SubmitConfigSource_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
@@ -25,6 +24,16 @@ function main(serviceName) {
    *  for naming requirements.  For example: `example.googleapis.com`.
    */
   // const serviceName = 'abc123'
+  /**
+   *  Required. The source configuration for the service.
+   */
+  // const configSource = ''
+  /**
+   *  Optional. If set, this will result in the generation of a
+   *  `google.api.Service` configuration based on the `ConfigSource` provided,
+   *  but the generated config and the sources will NOT be persisted.
+   */
+  // const validateOnly = true
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -32,20 +41,23 @@ function main(serviceName) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function deleteService() {
+  async function submitConfigSource() {
     // Construct request
     const request = {
       serviceName,
+      configSource,
     };
 
     // Run request
-    const [operation] = await servicemanagementClient.deleteService(request);
+    const [operation] = await servicemanagementClient.submitConfigSource(
+      request
+    );
     const [response] = await operation.promise();
     console.log(response);
   }
 
-  deleteService();
-  // [END servicemanagement_v1_generated_ServiceManager_DeleteService_async]
+  submitConfigSource();
+  // [END servicemanagement_v1_generated_ServiceManager_SubmitConfigSource_async]
 }
 
 process.on('unhandledRejection', err => {
