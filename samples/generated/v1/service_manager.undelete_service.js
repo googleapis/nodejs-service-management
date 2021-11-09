@@ -12,23 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, rolloutId) {
-  // [START servicemanagement_v1_generated_ServiceManager_GetServiceRollout_async]
+function main(serviceName) {
+  // [START servicemanagement_v1_generated_ServiceManager_UndeleteService_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the service.  See the overview (https://cloud.google.com/service-management/overview)
-   *  for naming requirements.  For example: `example.googleapis.com`.
+   *  Required. The name of the service. See the overview (https://cloud.google.com/service-management/overview)
+   *  for naming requirements. For example: `example.googleapis.com`.
    */
   // const serviceName = 'abc123'
-  /**
-   *  Required. The id of the rollout resource.
-   */
-  // const rolloutId = 'abc123'
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -36,20 +31,20 @@ function main(serviceName, rolloutId) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function callGetServiceRollout() {
+  async function callUndeleteService() {
     // Construct request
     const request = {
       serviceName,
-      rolloutId,
     };
 
     // Run request
-    const response = await servicemanagementClient.getServiceRollout(request);
+    const [operation] = await servicemanagementClient.undeleteService(request);
+    const [response] = await operation.promise();
     console.log(response);
   }
 
-  callGetServiceRollout();
-  // [END servicemanagement_v1_generated_ServiceManager_GetServiceRollout_async]
+  callUndeleteService();
+  // [END servicemanagement_v1_generated_ServiceManager_UndeleteService_async]
 }
 
 process.on('unhandledRejection', err => {

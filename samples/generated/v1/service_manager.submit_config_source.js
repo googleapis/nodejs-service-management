@@ -12,11 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, filter) {
-  // [START servicemanagement_v1_generated_ServiceManager_ListServiceRollouts_async]
+function main(serviceName, configSource) {
+  // [START servicemanagement_v1_generated_ServiceManager_SubmitConfigSource_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
@@ -26,25 +25,15 @@ function main(serviceName, filter) {
    */
   // const serviceName = 'abc123'
   /**
-   *  The token of the page to retrieve.
+   *  Required. The source configuration for the service.
    */
-  // const pageToken = 'abc123'
+  // const configSource = {}
   /**
-   *  The max number of items to include in the response list. Page size is 50
-   *  if not specified. Maximum value is 100.
+   *  Optional. If set, this will result in the generation of a
+   *  `google.api.Service` configuration based on the `ConfigSource` provided,
+   *  but the generated config and the sources will NOT be persisted.
    */
-  // const pageSize = 1234
-  /**
-   *  Required. Use `filter` to return subset of rollouts.
-   *  The following filters are supported:
-   *    -- To limit the results to only those in
-   *       status (google.api.servicemanagement.v1.RolloutStatus) 'SUCCESS',
-   *       use filter='status=SUCCESS'
-   *    -- To limit the results to those in
-   *       status (google.api.servicemanagement.v1.RolloutStatus) 'CANCELLED'
-   *       or 'FAILED', use filter='status=CANCELLED OR status=FAILED'
-   */
-  // const filter = 'abc123'
+  // const validateOnly = true
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -52,22 +41,23 @@ function main(serviceName, filter) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function callListServiceRollouts() {
+  async function callSubmitConfigSource() {
     // Construct request
     const request = {
       serviceName,
-      filter,
+      configSource,
     };
 
     // Run request
-    const iterable = await servicemanagementClient.listServiceRolloutsAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const [operation] = await servicemanagementClient.submitConfigSource(
+      request
+    );
+    const [response] = await operation.promise();
+    console.log(response);
   }
 
-  callListServiceRollouts();
-  // [END servicemanagement_v1_generated_ServiceManager_ListServiceRollouts_async]
+  callSubmitConfigSource();
+  // [END servicemanagement_v1_generated_ServiceManager_SubmitConfigSource_async]
 }
 
 process.on('unhandledRejection', err => {

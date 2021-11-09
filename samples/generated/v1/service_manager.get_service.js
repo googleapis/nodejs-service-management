@@ -12,23 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, serviceConfig) {
-  // [START servicemanagement_v1_generated_ServiceManager_CreateServiceConfig_async]
+function main(serviceName) {
+  // [START servicemanagement_v1_generated_ServiceManager_GetService_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the service.  See the overview (https://cloud.google.com/service-management/overview)
-   *  for naming requirements.  For example: `example.googleapis.com`.
+   *  Required. The name of the service.  See the `ServiceManager` overview for naming
+   *  requirements.  For example: `example.googleapis.com`.
    */
   // const serviceName = 'abc123'
-  /**
-   *  Required. The service configuration resource.
-   */
-  // const serviceConfig = {}
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -36,20 +31,19 @@ function main(serviceName, serviceConfig) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function callCreateServiceConfig() {
+  async function callGetService() {
     // Construct request
     const request = {
       serviceName,
-      serviceConfig,
     };
 
     // Run request
-    const response = await servicemanagementClient.createServiceConfig(request);
+    const response = await servicemanagementClient.getService(request);
     console.log(response);
   }
 
-  callCreateServiceConfig();
-  // [END servicemanagement_v1_generated_ServiceManager_CreateServiceConfig_async]
+  callGetService();
+  // [END servicemanagement_v1_generated_ServiceManager_GetService_async]
 }
 
 process.on('unhandledRejection', err => {

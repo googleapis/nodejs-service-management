@@ -12,30 +12,28 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main(serviceName, configId) {
-  // [START servicemanagement_v1_generated_ServiceManager_GetServiceConfig_async]
+function main(serviceName, consumerId) {
+  // [START servicemanagement_v1_generated_ServiceManager_EnableService_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Required. The name of the service.  See the overview (https://cloud.google.com/service-management/overview)
-   *  for naming requirements.  For example: `example.googleapis.com`.
+   *  Required. Name of the service to enable. Specifying an unknown service name will
+   *  cause the request to fail.
    */
   // const serviceName = 'abc123'
   /**
-   *  Required. The id of the service configuration resource.
-   *  This field must be specified for the server to return all fields, including
-   *  `SourceInfo`.
+   *  Required. The identity of consumer resource which service enablement will be
+   *  applied to.
+   *  The Google Service Management implementation accepts the following
+   *  forms:
+   *  - "project:<project_id>"
+   *  Note: this is made compatible with
+   *  google.api.servicecontrol.v1.Operation.consumer_id.
    */
-  // const configId = 'abc123'
-  /**
-   *  Specifies which parts of the Service Config should be returned in the
-   *  response.
-   */
-  // const view = {}
+  // const consumerId = 'abc123'
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -43,20 +41,21 @@ function main(serviceName, configId) {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function callGetServiceConfig() {
+  async function callEnableService() {
     // Construct request
     const request = {
       serviceName,
-      configId,
+      consumerId,
     };
 
     // Run request
-    const response = await servicemanagementClient.getServiceConfig(request);
+    const [operation] = await servicemanagementClient.enableService(request);
+    const [response] = await operation.promise();
     console.log(response);
   }
 
-  callGetServiceConfig();
-  // [END servicemanagement_v1_generated_ServiceManager_GetServiceConfig_async]
+  callEnableService();
+  // [END servicemanagement_v1_generated_ServiceManager_EnableService_async]
 }
 
 process.on('unhandledRejection', err => {

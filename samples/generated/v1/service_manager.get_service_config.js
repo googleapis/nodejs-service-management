@@ -12,35 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 'use strict';
 
-function main() {
-  // [START servicemanagement_v1_generated_ServiceManager_ListServices_async]
+function main(serviceName, configId) {
+  // [START servicemanagement_v1_generated_ServiceManager_GetServiceConfig_async]
   /**
    * TODO(developer): Uncomment these variables before running the sample.
    */
   /**
-   *  Include services produced by the specified project.
+   *  Required. The name of the service.  See the overview (https://cloud.google.com/service-management/overview)
+   *  for naming requirements.  For example: `example.googleapis.com`.
    */
-  // const producerProjectId = 'abc123'
+  // const serviceName = 'abc123'
   /**
-   *  The max number of items to include in the response list. Page size is 50
-   *  if not specified. Maximum value is 100.
+   *  Required. The id of the service configuration resource.
+   *  This field must be specified for the server to return all fields, including
+   *  `SourceInfo`.
    */
-  // const pageSize = 1234
+  // const configId = 'abc123'
   /**
-   *  Token identifying which result to start with; returned by a previous list
-   *  call.
+   *  Specifies which parts of the Service Config should be returned in the
+   *  response.
    */
-  // const pageToken = 'abc123'
-  /**
-   *  Include services consumed by the specified consumer.
-   *  The Google Service Management implementation accepts the following
-   *  forms:
-   *  - project:<project_id>
-   */
-  // const consumerId = 'abc123'
+  // const view = {}
 
   // Imports the Servicemanagement library
   const {ServiceManagerClient} = require('@google-cloud/service-management').v1;
@@ -48,20 +42,20 @@ function main() {
   // Instantiates a client
   const servicemanagementClient = new ServiceManagerClient();
 
-  async function callListServices() {
+  async function callGetServiceConfig() {
     // Construct request
     const request = {
+      serviceName,
+      configId,
     };
 
     // Run request
-    const iterable = await servicemanagementClient.listServicesAsync(request);
-    for await (const response of iterable) {
-        console.log(response);
-    }
+    const response = await servicemanagementClient.getServiceConfig(request);
+    console.log(response);
   }
 
-  callListServices();
-  // [END servicemanagement_v1_generated_ServiceManager_ListServices_async]
+  callGetServiceConfig();
+  // [END servicemanagement_v1_generated_ServiceManager_GetServiceConfig_async]
 }
 
 process.on('unhandledRejection', err => {
