@@ -12,5 +12,5 @@
   "language": "nodejs",
   "repo": "googleapis/nodejs-service-management",
   "api_shortname": "service-management",
-  "library_type": ""
+  "library_type": "GAPIC_AUTO"
 }
