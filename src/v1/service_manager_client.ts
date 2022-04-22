@@ -507,7 +507,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {string} request.configId
    *   Required. The id of the service configuration resource.
@@ -621,7 +621,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {google.api.Service} request.serviceConfig
    *   Required. The service configuration resource.
@@ -723,7 +723,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {string} request.rolloutId
    *   Required. The id of the rollout resource.
@@ -1088,7 +1088,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
@@ -1232,7 +1232,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service. See the
-   *   [overview](/service-management/overview) for naming requirements. For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements. For
    *   example: `example.googleapis.com`.
    * @param {object} [options]
    *   Call options. See {@link https://googleapis.dev/nodejs/google-gax/latest/interfaces/CallOptions.html|CallOptions} for more details.
@@ -1384,7 +1384,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {google.api.servicemanagement.v1.ConfigSource} request.configSource
    *   Required. The source configuration for the service.
@@ -1542,7 +1542,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {google.api.servicemanagement.v1.Rollout} request.rollout
    *   Required. The rollout resource. The `service_name` field is output only.
@@ -1889,7 +1889,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {string} request.pageToken
    *   The token of the page to retrieve.
@@ -1990,7 +1990,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {string} request.pageToken
    *   The token of the page to retrieve.
@@ -2039,7 +2039,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {string} request.pageToken
    *   The token of the page to retrieve.
@@ -2088,7 +2088,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {string} request.pageToken
    *   The token of the page to retrieve.
@@ -2198,7 +2198,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {string} request.pageToken
    *   The token of the page to retrieve.
@@ -2256,7 +2256,7 @@ export class ServiceManagerClient {
    *   The request object that will be sent.
    * @param {string} request.serviceName
    *   Required. The name of the service.  See the
-   *   [overview](/service-management/overview) for naming requirements.  For
+   *   [overview](https://cloud.google.com/service-infrastructure/docs/overview) for naming requirements.  For
    *   example: `example.googleapis.com`.
    * @param {string} request.pageToken
    *   The token of the page to retrieve.
